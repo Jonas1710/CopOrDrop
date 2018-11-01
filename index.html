@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cop or Drop</title>
-        <link rel="stylesheet" href="css.css">
+        <link rel="stylesheet" href="css/css.css">
     </head>
     <body>
         <header>
@@ -12,22 +12,31 @@
             <h1 class="h1_small">C or D</h1>
         </header>
         <nav>
-            <a href="#" class="btnNav active">Home</a>
-            <a href="statistik.html" class="btnNav">Statistik</a>
-            <a href="login.html" class="btnNav">Login</a>
+            <div id="burger" class="burger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="menu" class="menu">
+                <a href="#" class="btn_nav active">Home</a>
+                <a href="statistik.html" class="btn_nav">Statistik</a>
+                <a href="registration.html" class="btn_nav">Registration</a>
+                <a href="login.html" class="btn_nav">Login</a>
+            </div>
         </nav>
         <main>
             <div class="images">
-                <a id="image1"><img class="image1" src="https://via.placeholder.com/500/fca40d/000000" alt="image"></a>
-                <h2>vs</h2>
-                <a id="image2"><img class="image2" src="https://via.placeholder.com/500/fca40d/000000" alt="image"></a>
+                <img id="image1" class="image1" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+                <p>vs</p>
+                <img id="image2" class="image2" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
             </div>
-            <div class="upload-btn-wrapper">
-              <button class="btn">Bild hochladen</button>
-              <input type="file" name="myfile" class="inputfile" />
+            <div class="btn_upload_wrapper">
+                <input id="btn_upload" class="btn_upload" type="button" value="Bild hochladen">
+                <input id="input_file" class="input_file" type="file">
+                <label id="selected_file" for="btn_upload">Kein Bild ausgewählt</label>
             </div>
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js.js"></script>
+        <script src="js/js.js"></script>
     </body>
 </html>

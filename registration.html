@@ -19,34 +19,21 @@
             </div>
             <div id="menu" class="menu">
                 <a href="index.html" class="btn_nav">Home</a>
-                <a href="#" class="btn_nav active">Statistik</a>
-                <a href="registration.html" class="btn_nav">Registration</a>
+                <a href="statistik.html" class="btn_nav">Statistik</a>
+                <a href="#" class="btn_nav active">Registration</a>
                 <a href="login.html" class="btn_nav">Login</a>
             </div>
         </nav>
         <main>
-            <table class="tb">
-                <thead>
-                    <th>Bild</th>
-                    <th>Aufrufe</th>
-                    <th>Likes</th>
-                    <th>Quote</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bild 1</td>
-                        <td>80</td>
-                        <td>30</td>
-                        <td>37.5%</td>
-                    </tr>
-                    <tr>
-                        <td>Bild 2</td>
-                        <td>40</td>
-                        <td>25</td>
-                        <td>62.5%</td>
-                    </tr>
-                </tbody>
-            </table>
+            <form action="login.php">
+                <label for="input_username">Benutzername:</label>
+                <input id="input_username" type="text" name="username" placeholder="Benutzername">
+                <label for="input_password">Passwort:</label>
+                <input id="input_password" type="password" name="password" placeholder="Passwort">
+                <label for="input_password_2">Passwort wiederholen:</label>
+                <input id="input_password_2" type="password" name="password_2" placeholder="Passwort">
+                <input id="btn_login" type="submit" class="btn_login">
+            </form>
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/js.js"></script>

@@ -1,0 +1,187 @@
+* {
+    border: none;
+    color: black;
+    font: 16px Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #f6f6f6;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    background: #58abf0;
+    text-align: center;
+}
+.h1_big {
+    font-size: 50px;
+}
+.h1_small {
+    display: none;
+    font-size: 50px;
+}
+
+/* Nav */
+nav {
+    background: #58abf0;
+    text-align: center;
+}
+.btn_nav {
+    background: none;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    width: 100px;
+}
+.btn_nav.active {
+    border-bottom: 5px solid #399aeb;
+}
+
+/* Nav Burger */
+.burger {
+    display: none;
+    text-align: center;
+}
+.bar1, .bar2, .bar3 {
+    background: black;
+    height: 5px;
+    margin-bottom: 5px;
+    transition: .5s;
+    width: 30px;
+}
+.clicked .bar1 {
+    transform: rotate(-45deg) translate(-7px, 7px);
+}
+.clicked .bar2 {
+    opacity: 0;
+}
+.clicked .bar3 {
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
+/* Main */
+main {
+    background: lightgray;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main->Images */
+.images {
+    display: inline-block;
+}
+.images:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.images p {
+    float: left;
+    font-size: 30px;
+    line-height: 500px;
+    max-height: 500px;
+    width: 40px;
+}
+.image1, .image2 {
+    float: left;
+    max-width: 500px;
+    width: calc(50vw - 60px);
+}
+h2 {
+    display: inline-block;
+    font-size: 40px;
+    height: calc(25vw);
+    margin: 0 10px;
+    max-height: 280px;
+    vertical-align: bottom;
+}
+
+/* Main->Btn */
+.btn_upload_wrapper {
+    text-align: center;
+}
+.btn_upload {
+    background: #58abf0;
+    height: 50px;
+    width: 150px;
+}
+.input_file {
+    display: none;
+}
+
+/* Main->Table */
+.tb {
+    background: #fca40d;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: inline-table;
+    width: 400px;
+}
+.tb th {
+    background: #f09800;
+}
+.tb tr {
+    border-bottom: 1px solid #00000022;
+}
+.tb thead tr {
+    border: none;
+}
+td, th {
+    height: 40px;
+}
+
+/* Main->Form */
+form {
+    display: inline-block;
+    text-align: left;
+    width: 400px;
+}
+form input {
+    display: inline-block;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    width: calc(100% - 30px);
+}
+.btn_login {
+    background: #58abf0;
+    height: 50px;
+    margin: 0;
+    width: 100%;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+    .burger {
+        display: inline-block;
+    }
+    .menu .btn_nav {
+        width: 100%;
+    }
+    .menu .btn_nav.active {
+        background: #399aeb;
+        border: none;
+    }
+    .tb {
+        width: 100%;
+    }
+    form {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 400px) {
+    .h1_big {
+        display: none;
+    }
+    .h1_small {
+        display: block;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 1120px) {
+    .images p {
+        line-height: calc(50vw - 60px);
+    }
+}
