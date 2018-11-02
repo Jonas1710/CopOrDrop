@@ -18,21 +18,21 @@
                 <div class="bar3"></div>
             </div>
             <div id="menu" class="menu">
-                <a href="index.html" class="btn_nav">Home</a>
-                <a href="statistik.html" class="btn_nav">Statistik</a>
-                <a href="#" class="btn_nav active">Registration</a>
-                <a href="login.html" class="btn_nav">Login</a>
+                <a href="index.html" class="btn nav">Home</a>
+                <a href="statistik.html" class="btn nav">Statistik</a>
+                <a href="#" class="btn nav active">Registration</a>
+                <a href="login.html" class="btn nav">Login</a>
             </div>
         </nav>
         <main>
-            <form action="login.php">
+            <form action="register.php">
                 <label for="input_username">Benutzername:</label>
-                <input id="input_username" type="text" name="username" placeholder="Benutzername">
+                <input id="input_username" type="text" name="username" autocomplete="username" placeholder="Benutzername">
                 <label for="input_password">Passwort:</label>
-                <input id="input_password" type="password" name="password" placeholder="Passwort">
+                <input id="input_password" type="password" name="password" autocomplete="new-password" placeholder="Passwort">
                 <label for="input_password_2">Passwort wiederholen:</label>
-                <input id="input_password_2" type="password" name="password_2" placeholder="Passwort">
-                <input id="btn_login" type="submit" class="btn_login">
+                <input id="input_password_2" type="password" name="password_2" autocomplete="new-password" placeholder="Passwort">
+                <input id="btn_register" type="submit" class="btn form">
             </form>
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

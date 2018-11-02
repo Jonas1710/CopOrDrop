@@ -3,11 +3,22 @@
     color: black;
     font: 16px Arial, sans-serif;
     margin: 0;
+    outline: none;
     padding: 0;
 }
 body {
-    background: #f6f6f6;
+    background: #f7f7f7;
     height: 100vh;
+}
+.btn {
+    background: #58abf0;
+    height: 50px;
+    padding: 0 10px;
+    transition: .3s;
+}
+.btn:hover {
+    background: #399aeb;
+    cursor: pointer;
 }
 
 /* Header */
@@ -26,30 +37,36 @@ header {
 /* Nav */
 nav {
     background: #58abf0;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
 }
-.btn_nav {
+.btn.nav {
     background: none;
     display: inline-block;
-    height: 50px;
+    height: 45px;
     line-height: 50px;
+    padding: 0 20px;
     text-decoration: none;
-    width: 100px;
 }
-.btn_nav.active {
+.btn.nav:hover {
+    background: #399aeb;
+}
+.btn.nav.active {
     border-bottom: 5px solid #399aeb;
 }
 
 /* Nav Burger */
 .burger {
     display: none;
+    height: 50px;
     text-align: center;
+    vertical-align: middle;
 }
 .bar1, .bar2, .bar3 {
     background: black;
     height: 5px;
-    margin-bottom: 5px;
-    transition: .5s;
+    margin-top: 5px;
+    transition: .3s;
     width: 30px;
 }
 .clicked .bar1 {
@@ -64,32 +81,33 @@ nav {
 
 /* Main */
 main {
-    background: lightgray;
-    margin: 20px;
+    background: #e0e0e0;
+    box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.2);
+    margin: 20px 20px 0 20px;
     padding: 20px;
     text-align: center;
 }
 
 /* Main->Images */
 .images {
-    display: inline-block;
+    margin-bottom: 20px;
 }
-.images:after {
-    clear: both;
-    content: "";
-    display: block;
+.images * {
+    display: inline-block;
+    vertical-align: middle;
 }
 .images p {
-    float: left;
     font-size: 30px;
-    line-height: 500px;
-    max-height: 500px;
     width: 40px;
 }
 .image1, .image2 {
-    float: left;
     max-width: 500px;
+    transition: .3s;
     width: calc(50vw - 60px);
+}
+.image1:hover, .image2:hover {
+    cursor: pointer;
+    filter: brightness(.9);
 }
 h2 {
     display: inline-block;
@@ -100,17 +118,45 @@ h2 {
     vertical-align: bottom;
 }
 
-/* Main->Btn */
-.btn_upload_wrapper {
+/* Main->Upload Form */
+.upload_dialog {
+    background: #e0e0e0;
+    display: none;
+    left: calc(50% - 170px);
+    padding: 20px;
+    position: absolute;
     text-align: center;
+    top: calc(50% - 124px);
 }
-.btn_upload {
-    background: #58abf0;
-    height: 50px;
-    width: 150px;
+.upload_dialog form {
+    width: 300px;
+}
+form div {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.background {
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .input_file {
     display: none;
+}
+.selected_file {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 170px;
+}
+.btn.upload.form {
+    margin: 0;
+    margin: 0 5px;
+    width: calc(50% - 10px);
 }
 
 /* Main->Table */
@@ -140,30 +186,39 @@ form {
     text-align: left;
     width: 400px;
 }
-form input {
-    display: inline-block;
+input[type="text"], input[type="password"] {
     height: 50px;
     margin-bottom: 20px;
-    padding: 0 15px;
-    width: calc(100% - 30px);
+    padding: 0 10px;
+    width: calc(100% - 20px);
 }
-.btn_login {
-    background: #58abf0;
-    height: 50px;
+.btn.form {
     margin: 0;
     width: 100%;
 }
 
+/* Small View */
 @media only screen and (min-width: 0px) and (max-width: 480px) {
+    nav {
+        position: absolute;
+        width: 100%;
+    }
     .burger {
         display: inline-block;
     }
-    .menu .btn_nav {
+    .menu .btn.nav {
+        padding: 0;
         width: 100%;
     }
-    .menu .btn_nav.active {
+    .menu .btn.nav.active {
         background: #399aeb;
         border: none;
+    }
+    main {
+        margin-top: 70px;
+    }
+    .image1, .image2 {
+        width: 100%;
     }
     .tb {
         width: 100%;
@@ -172,16 +227,11 @@ form input {
         width: 100%;
     }
 }
-@media only screen and (min-width: 0px) and (max-width: 400px) {
+@media only screen and (min-width: 0px) and (max-width: 320px) {
     .h1_big {
         display: none;
     }
     .h1_small {
         display: block;
-    }
-}
-@media only screen and (min-width: 0px) and (max-width: 1120px) {
-    .images p {
-        line-height: calc(50vw - 60px);
     }
 }
