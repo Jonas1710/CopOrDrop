@@ -26,9 +26,15 @@
         </nav>
         <main>
             <div class="images">
-                <img id="image1" class="image1" src="https://via.placeholder.com/500/fca40d/000000" alt="image"><!--
-                --><p>vs</p><!--
-                --><img id="image2" class="image2" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+                <div class="image_container">
+                    <p id="image_name1" class="image_name">Bild 1</p>
+                    <img id="image1" class="image" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+                </div><!--
+                --><p class="vs">vs</p><!--
+                --><div class="image_container">
+                    <p id="image_name2" class="image_name">Bild 2</p>
+                    <img id="image2" class="image" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+                </div>
             </div>
             <input id="btn_open_upload" class="btn" type="button" value="Bild hochladen">
             <div id="background" class="background"></div>
@@ -41,7 +47,7 @@
                     </div>
                     <label for="input_imagename">Name:</label>
                     <input id="input_imagename" type="text" name="imagename" placeholder="Name">
-                    <input id="btn_close" class="btn upload form" type="button" value="Abbrechen"><!--
+                    <input id="btn_close" class="btn upload form left" type="button" value="Abbrechen"><!--
                     --><input id="btn_upload" class="btn upload form" type="submit">
                 </form>
             </div>

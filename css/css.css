@@ -3,7 +3,6 @@
     color: black;
     font: 16px Arial, sans-serif;
     margin: 0;
-    outline: none;
     padding: 0;
 }
 body {
@@ -14,7 +13,7 @@ body {
     background: #58abf0;
     height: 50px;
     padding: 0 10px;
-    transition: .3s;
+    transition: background .3s;
 }
 .btn:hover {
     background: #399aeb;
@@ -43,7 +42,7 @@ nav {
 .btn.nav {
     background: none;
     display: inline-block;
-    height: 45px;
+    height: 50px;
     line-height: 50px;
     padding: 0 20px;
     text-decoration: none;
@@ -52,7 +51,7 @@ nav {
     background: #399aeb;
 }
 .btn.nav.active {
-    border-bottom: 5px solid #399aeb;
+    background: #399aeb;
 }
 
 /* Nav Burger */
@@ -91,31 +90,30 @@ main {
 /* Main->Images */
 .images {
     margin-bottom: 20px;
+    width: 100%;
 }
-.images * {
+.images > * {
     display: inline-block;
     vertical-align: middle;
 }
-.images p {
+.image_container {
+    width: calc(50% - 30px);
+}
+.images .vs {
+    font-size: 50px;
+    width: 60px;
+}
+.image_name {
     font-size: 30px;
-    width: 40px;
 }
-.image1, .image2 {
+.image {
     max-width: 500px;
-    transition: .3s;
-    width: calc(50vw - 60px);
+    transition: filter .3s;
+    width: 100%;
 }
-.image1:hover, .image2:hover {
+.image:hover {
     cursor: pointer;
     filter: brightness(.9);
-}
-h2 {
-    display: inline-block;
-    font-size: 40px;
-    height: calc(25vw);
-    margin: 0 10px;
-    max-height: 280px;
-    vertical-align: bottom;
 }
 
 /* Main->Upload Form */
@@ -124,7 +122,7 @@ h2 {
     display: none;
     left: calc(50% - 170px);
     padding: 20px;
-    position: absolute;
+    position: fixed;
     text-align: center;
     top: calc(50% - 124px);
 }
@@ -140,7 +138,7 @@ form div {
     bottom: 0;
     display: none;
     left: 0;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
 }
@@ -154,9 +152,10 @@ form div {
     width: 170px;
 }
 .btn.upload.form {
-    margin: 0;
-    margin: 0 5px;
-    width: calc(50% - 10px);
+    width: calc(50% - 5px);
+}
+.btn.upload.form.left {
+    margin-right: 10px;
 }
 
 /* Main->Table */
@@ -165,7 +164,7 @@ form div {
     border-collapse: collapse;
     border-spacing: 0;
     display: inline-table;
-    width: 400px;
+    width: 500px;
 }
 .tb th {
     background: #f09800;
@@ -210,14 +209,10 @@ input[type="text"], input[type="password"] {
         padding: 0;
         width: 100%;
     }
-    .menu .btn.nav.active {
-        background: #399aeb;
-        border: none;
-    }
     main {
         margin-top: 70px;
     }
-    .image1, .image2 {
+    .image_container {
         width: 100%;
     }
     .tb {
