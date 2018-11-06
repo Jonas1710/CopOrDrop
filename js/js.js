@@ -3,7 +3,14 @@ var small = false;
 
 var image1 = 0;
 var image2 = 0;
+var image;
 
+
+    
+$.post("db_scripts/show_images.php", function (data) {
+    image = data;
+});
+$("#image1").attr("src", image);
 /* image functions */
 $("#image1").click(function () {
     image1 += 1;

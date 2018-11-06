@@ -25,33 +25,38 @@
             </div>
         </nav>
         <main>
-            <div class="images">
-                <div class="image_container">
-                    <p id="image_name1" class="image_name">Bild 1</p>
-                    <img id="image1" class="image" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
-                </div><!--
-                --><p class="vs">vs</p><!--
-                --><div class="image_container">
-                    <p id="image_name2" class="image_name">Bild 2</p>
-                    <img id="image2" class="image" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+            <div class="content">
+                <div class="images">
+                    <div class="image_container">
+                        <p id="image_name1" class="image_name">Bild 1</p>
+                        <img id="image1" class="image" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+                    </div><!--
+                    --><p class="vs">vs</p><!--
+                    --><div class="image_container">
+                        <p id="image_name2" class="image_name">Bild 2</p>
+                        <img id="image2" class="image" src="https://via.placeholder.com/500/fca40d/000000" alt="image">
+                    </div>
+                </div>
+                <input id="btn_open_upload" class="btn" type="button" value="Bild hochladen">
+                <div id="background" class="background"></div>
+                <div id="upload_dialog" class="upload_dialog">
+                    <form action="upload.php">
+                        <div>
+                            <input id="btn_select" class="btn" type="button" value="Bild hochladen">
+                            <input id="input_file" class="input_file" type="file">
+                            <label id="selected_file" class="selected_file" for="btn_upload">Kein Bild ausgewählt</label>
+                        </div>
+                        <label for="input_imagename">Name:</label>
+                        <input id="input_imagename" type="text" name="imagename" placeholder="Name">
+                        <input id="btn_close" class="btn upload form left" type="button" value="Abbrechen"><!--
+                        --><input id="btn_upload" class="btn upload form" type="submit">
+                    </form>
                 </div>
             </div>
-            <input id="btn_open_upload" class="btn" type="button" value="Bild hochladen">
-            <div id="background" class="background"></div>
-            <div id="upload_dialog" class="upload_dialog">
-                <form action="upload.php">
-                    <div>
-                        <input id="btn_select" class="btn" type="button" value="Bild hochladen">
-                        <input id="input_file" class="input_file" type="file">
-                        <label id="selected_file" class="selected_file" for="btn_upload">Kein Bild ausgewählt</label>
-                    </div>
-                    <label for="input_imagename">Name:</label>
-                    <input id="input_imagename" type="text" name="imagename" placeholder="Name">
-                    <input id="btn_close" class="btn upload form left" type="button" value="Abbrechen"><!--
-                    --><input id="btn_upload" class="btn upload form" type="submit">
-                </form>
-            </div>
         </main>
+        <footer>
+            <p class="copyright">&copy; Cop or Drop</p>
+        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/js.js"></script>
     </body>
