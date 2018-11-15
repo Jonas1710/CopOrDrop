@@ -101,6 +101,7 @@ main {
     vertical-align: middle;
 }
 .image_container {
+    max-height: 534px;
     max-width: 500px;
     width: calc(50% - 30px);
 }
@@ -112,8 +113,9 @@ main {
     font-size: 30px;
 }
 .image {
+    max-height:500px;
+    max-width:500px;
     transition: filter .3s;
-    width: 100%;
 }
 .image:hover {
     cursor: pointer;

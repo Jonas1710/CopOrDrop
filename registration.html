@@ -26,12 +26,12 @@
         </nav>
         <main>
             <div class="content">
-                <form action="register.php">
-                    <label for="input_username">Benutzername:</label>
+                <form action="javascript:void(0);" method="post">
+                    <label id="lbl_username" for="input_username">Benutzername:</label>
                     <input id="input_username" type="text" name="username" autocomplete="username" placeholder="Benutzername">
-                    <label for="input_password">Passwort:</label>
-                    <input id="input_password" type="password" name="password" autocomplete="new-password" placeholder="Passwort">
-                    <label for="input_password_2">Passwort wiederholen:</label>
+                    <label id="lbl_password" for="input_password">Passwort:</label>
+                    <input id="input_password" type="password" name="password" autocomplete="current-password" placeholder="Passwort">
+                    <label id="lbl_password_2" for="input_password_2">Passwort wiederholen:</label>
                     <input id="input_password_2" type="password" name="password_2" autocomplete="new-password" placeholder="Passwort">
                     <input id="btn_register" type="submit" class="btn form">
                 </form>
@@ -40,7 +40,8 @@
         <footer>
             <p class="copyright">&copy; Cop or Drop</p>
         </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/js.js"></script>
+        <script src="js/registration.js"></script>
     </body>
 </html>
