@@ -1,5 +1,5 @@
-var win = window.matchMedia("(max-width: 480px)");
-var small = false;
+var win = window.matchMedia("(max-width: 480px)"),
+    small = false;
 
 /* burger menu */
 $("#burger").click(function () {

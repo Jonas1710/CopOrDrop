@@ -1,13 +1,18 @@
 # CopOrDrop
 ## Funktionen:
 - Bilder anzeigen
+  - Random
+- Statistik dynamisch anpassen
 - Rudimentärer Bilder Klick
 - Statistik anzeigen
-- Registration und Login Input Check
+- Registration
+- Login Input Check
 ## ToDo
 - Bilder Klick
   - Neue Bilder
-  - Statistik anpassen
+  - Verschiedene Bilder
 - Bilder hochladen
 - Statistik sortieren
-- Registration und Login
+- Login
+  - Privat und Public View
+  - Logout

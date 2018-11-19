@@ -1,26 +1,34 @@
-var regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z.,:;\-+_!?@#*=/\\()\[\]{}]{8,}$/;
-
 $("#btn_login").click(function () {
     var msg = "";
-    if ($("#input_username").val() == "") {
+    if ($("#input_username").val() === "") {
         $("#lbl_username").css("color", "red");
         msg += "<p>Benutzername ist leer</p>";
     } else {
         $("#lbl_username").css("color", "");
     }
-    if ($("#input_password").val() == "") {
+    if ($("#input_password").val() === "") {
         $("#lbl_password").css("color", "red");
         msg += "<p>Passwort ist leer</p>";
-    } else if (!$("#input_password").val().match(regex)) {
-        $("#lbl_password").css("color", "red");
-        msg += "<p>Passwort ist falsch</p>";
     } else {
         $("#lbl_password").css("color", "");
     }
-    if (msg == "") {
-        //Login
-        
-        $("#error").hide();
+    if (msg === "") {
+        var username = $("#input_username").val(),
+            password = $("#input_password").val();
+        $.post("db_scripts/login.php", { username: username, password: password }, function (data) {
+            var datas = data.split(";");
+            if (datas[0] === "true") {
+                $("#error").hide();
+                
+                $("#success").show();
+                $("#success").html(datas[1]);
+            } else {
+                $("#error").show();
+                $("#error").html(datas[1]);
+                
+                $("#success").hide();
+            }
+        });
     } else {
         $("#error").show();
         $("#error").html(msg);

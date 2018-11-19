@@ -10,7 +10,7 @@ body {
     height: 100vh;
 }
 .btn {
-    -webkit-appearance: none;
+    appearance: none;
     background: #58abf0;
     height: 50px;
     padding: 0 10px;
@@ -89,6 +89,13 @@ main {
     background: #e0e0e0;
     box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.2);
     padding: 20px;
+}
+.success {
+    background: mediumseagreen;
+    display: none;
+    max-width: 400px;
+    padding: 10px;
+    width: calc(100% - 20px);
 }
 .error {
     background: lightcoral;
@@ -201,7 +208,7 @@ form {
     width: 100%;
 }
 input[type="text"], input[type="password"] {
-    -webkit-appearance: none;
+    appearance: none;
     height: 50px;
     margin-bottom: 20px;
     padding: 0 10px;

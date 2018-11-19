@@ -1,31 +1,31 @@
-var image1 = 0;
-var image2 = 0;
-var image;
-
-/* image functions */
-$("#image1").click(function () {
-    image1 += 1;
-    
-    $.post("db_scripts/image1.php", { bildID1: image1, bildID2: image2 }, function (data) {
-        console.log(data);
+/* show images */
+var bild1 = undefined;
+$.post("db_scripts/show_image.php", function (data) {
+    var datas = data.split(";");
+    bild1 = datas[0];
+    $("#image1").attr("alt", datas[0]);
+    $("#image_name1").text(datas[1]);
+    $("#image1").attr("src", "data:" + datas[2] + ";base64," + datas[3]);
+    $.post("db_scripts/show_image.php", { bild1: bild1 }, function (data) {
+        var datas = data.split(";");
+        $("#image2").attr("alt", datas[0]);
+        $("#image_name2").text(datas[1]);
+        $("#image2").attr("src", "data:" + datas[2] + ";base64," + datas[3]);
     });
+});
+
+/* image click functions */
+$("#image1").click(function () {
+    var bildID1 = $("#image1").attr("alt"),
+        bildID2 = $("#image2").attr("alt");
+    
+    $.post("db_scripts/image1.php", { bildID1: bildID1, bildID2: bildID2 });
 });
 $("#image2").click(function () {
-    image2 += 1;
+    var bildID1 = $("#image1").attr("alt"),
+        bildID2 = $("#image2").attr("alt");
     
-    $.post("db_scripts/image2.php", { bildID1: image1, bildID2: image2 }, function (data) {
-        console.log(data);
-    });
-});
-$.post("db_scripts/show_image1.php", function (data) {
-    var datas = data.split(";");
-    $("#image_name1").text(datas[0]);
-    $("#image1").attr("src", "data:" + datas[1] + ";base64," + datas[2]);
-});
-$.post("db_scripts/show_image2.php", function (data) {
-    var datas = data.split(";");
-    $("#image_name2").text(datas[0]);
-    $("#image2").attr("src", "data:" + datas[1] + ";base64," + datas[2]);
+    $.post("db_scripts/image2.php", { bildID1: bildID1, bildID2: bildID2 });
 });
 
 /* image upload form */
