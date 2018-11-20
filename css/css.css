@@ -10,7 +10,7 @@ body {
     height: 100vh;
 }
 .btn {
-    appearance: none;
+    -webkit-appearance: none;
     background: #58abf0;
     height: 50px;
     padding: 0 10px;
@@ -212,7 +212,7 @@ form {
     width: 100%;
 }
 input[type="text"], input[type="password"] {
-    appearance: none;
+    -webkit-appearance: none;
     height: 50px;
     margin-bottom: 20px;
     padding: 0 10px;
