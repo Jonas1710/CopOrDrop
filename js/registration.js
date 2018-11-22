@@ -46,10 +46,10 @@ $("#btn_register").click(function () {
                 $("#success").hide();
             }
         });
-        
-        $("#error").hide();
     } else {
         $("#error").show();
         $("#error").html(msg);
+                
+        $("#success").hide();
     }
 });

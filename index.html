@@ -40,8 +40,10 @@
                 <input id="btn_open_upload" class="btn" type="button" value="Bild hochladen">
                 <div id="background" class="background"></div>
                 <div id="upload_dialog" class="upload_dialog">
-                    <form action="upload.php">
+                    <form action="javascript:void(0);" method="post">
                         <div>
+                            <div id="success" class="success"></div>
+                            <div id="error" class="error"></div>
                             <input id="btn_select" class="btn" type="button" value="Bild hochladen">
                             <input id="input_file" class="input_file" type="file">
                             <label id="selected_file" class="selected_file" for="btn_upload">Kein Bild ausgewählt</label>

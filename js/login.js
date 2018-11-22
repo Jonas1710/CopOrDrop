@@ -32,5 +32,7 @@ $("#btn_login").click(function () {
     } else {
         $("#error").show();
         $("#error").html(msg);
+                
+        $("#success").hide();
     }
 });
