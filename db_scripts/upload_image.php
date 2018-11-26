@@ -1,9 +1,10 @@
 <?php
 include("db_connect.php");
 
-$name = $_POST["name"];
-$image = $_POST["image"];
-$typ = $_POST["typ"];
+$name = $_POST["imagename"];
+$image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+$typ = $_FILES["image"]["type"];
+
 $sql = "SELECT name FROM bilder WHERE name = '$name';";
 
 $result = mysqli_query($conn, $sql);

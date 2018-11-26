@@ -11,8 +11,17 @@ $numbers = array();
 for ($i = 1; $i <= $row[0]; $i++) {
     $numbers[$i-1] = $i;
 }
+
 if (isset($_POST["bild1"])) {
     $key = array_search($_POST["bild1"], $numbers);
+    array_splice($numbers, $key, 1);
+}
+if (isset($_POST["bild2"])) {
+    $key = array_search($_POST["bild2"], $numbers);
+    array_splice($numbers, $key, 1);
+}
+if (isset($_POST["bild3"])) {
+    $key = array_search($_POST["bild3"], $numbers);
     array_splice($numbers, $key, 1);
 }
 

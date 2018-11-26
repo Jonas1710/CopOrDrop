@@ -1,31 +1,37 @@
 /* show images */
-var bild1;
-$.post("db_scripts/show_image.php", function (data) {
-    var datas = data.split(";");
-    bild1 = datas[0];
-    $("#image1").attr("alt", datas[0]);
-    $("#image_name1").text(datas[1]);
-    $("#image1").attr("src", "data:" + datas[2] + ";base64," + datas[3]);
-    $.post("db_scripts/show_image.php", { bild1: bild1 }, function (data) {
+
+function show_image(bild1, bild2) {
+    $.post("db_scripts/show_image.php", { bild1: bild1, bild2: bild2 }, function (data) {
         var datas = data.split(";");
-        $("#image2").attr("alt", datas[0]);
-        $("#image_name2").text(datas[1]);
-        $("#image2").attr("src", "data:" + datas[2] + ";base64," + datas[3]);
+        var bild3 = datas[0];
+        $("#image1").attr("alt", datas[0]);
+        $("#image_name1").text(datas[1]);
+        $("#image1").attr("src", "data:" + datas[2] + ";base64," + datas[3]);
+        $.post("db_scripts/show_image.php", { bild1: bild1, bild2: bild2, bild3: bild3 }, function (data) {
+            var datas = data.split(";");
+            $("#image2").attr("alt", datas[0]);
+            $("#image_name2").text(datas[1]);
+            $("#image2").attr("src", "data:" + datas[2] + ";base64," + datas[3]);
+        });
     });
-});
+}
+
+$(document).ready(show_image(undefined, undefined));
 
 /* image click functions */
 $("#image1").click(function () {
     var bildID1 = $("#image1").attr("alt"),
         bildID2 = $("#image2").attr("alt");
+    //$.post("db_scripts/image1.php", { bildID1: bildID1, bildID2: bildID2 });
     
-    $.post("db_scripts/image1.php", { bildID1: bildID1, bildID2: bildID2 });
+    show_image(bildID1, bildID2);
 });
 $("#image2").click(function () {
     var bildID1 = $("#image1").attr("alt"),
         bildID2 = $("#image2").attr("alt");
+    //$.post("db_scripts/image2.php", { bildID1: bildID1, bildID2: bildID2 });
     
-    $.post("db_scripts/image2.php", { bildID1: bildID1, bildID2: bildID2 });
+    show_image(bildID1, bildID2);
 });
 
 /* image upload form */
@@ -45,71 +51,63 @@ $("#btn_select").click(function () {
     $("#input_file").click();
 });
 
+/* image upload -> check file */
 var _URL = window.URL || window.webkitURL;
 $("#input_file").change(function () {
     $("#selected_file").text($("#input_file")[0].files.item(0).name);
-    var  img,
-        image = this.files[0];
+    var image = this.files[0],
+        img = new Image(),
+        msg = "";
     if ((image)) {
-        var img = new Image(),
-            msg = "";
+        img.src = _URL.createObjectURL(image);
         img.onload = function () {
             var width = img.naturalWidth,
                 height = img.naturalHeight;
             if (width > 800 || height > 800) {
-                msg = "<p>Bild zu gross</p>";
+                msg += "<p>Bild zu gross</p>";
             } else if (width < 300 || height < 300) {
-                msg = "<p>Bild zu klein</p>";
+                msg += "<p>Bild zu klein</p>";
             }
             if (msg === "") {
-                var name = $("#input_imagename").val(),
-                    typ = image.type;
-                $.post("db_scripts/upload_image.php", { name: name, image: image, typ: typ }, function (data) {
-                    var datas = data.split(";");
-                    if (datas[0] === "true") {
-                        $("#error").hide();
-
-                        $("#success").show();
-                        $("#success").html(datas[1]);
-                    } else {
-                        $("#error").show();
-                        $("#error").html(datas[1]);
-
-                        $("#success").hide();
-                    }
-                });
+                $("#btn_upload").removeAttr("disabled");
                 
-                img.src = _URL.createObjectURL(image);
+                $("#success").show();
+                $("#success").html("<p>Bild entspricht Anforderungen</p>");
+                
+                $("#error").hide();
+                
+                img.src = _URL.revokeObjectURL(img.src);
             } else {
+                $("#btn_upload").attr("disabled", "disabled");
+                
                 $("#error").show();
                 $("#error").html(msg);
                 
                 $("#success").hide();
             }
-        };
-        img.onerror = function () {
-            console.log("not a valid file: " + image.type);
         };
     }
 });
+
+/* image upload -> check form */
 $("#btn_upload").click(function () {
-    var  img,
-        image = $("#input_file")[0].files[0];
+    var image = $("#input_file")[0].files[0],
+        img = new Image(),
+        msg = "";
     if ((image)) {
-        var img = new Image(),
-            msg = "";
-        img.onload = function () {
-            var width = img.naturalWidth,
-                height = img.naturalHeight;
-            if (width > 800 || height > 800) {
-                msg = "<p>Bild zu gross</p>";
-            } else if (width < 300 || height < 300) {
-                msg = "<p>Bild zu klein</p>";
-            }
-            if (msg === "") {
-                var name = $("#input_imagename").val(),
-                    typ = image.type;
-                $.post("db_scripts/upload_image.php", { name: name, image: image, typ: typ }, function (data) {
+        if ($("#input_imagename").val() === "") {
+            msg += "<p>Bildername ist leer</p>";
+        }
+        if (msg === "") {
+            $.ajax({
+                url: "db_scripts/upload_image.php",
+                type: "POST",
+                data: new FormData($("#image_upload")[0]),
+                cache: false,
+                contentType: false,
+                processData: false
+            })
+                .done(function (data) {
                     var datas = data.split(";");
                     if (datas[0] === "true") {
                         $("#error").hide();
@@ -123,17 +121,20 @@ $("#btn_upload").click(function () {
                         $("#success").hide();
                     }
                 });
-                
-                img.src = _URL.createObjectURL(image);
-            } else {
-                $("#error").show();
-                $("#error").html(msg);
-                
-                $("#success").hide();
-            }
-        };
-        img.onerror = function () {
-            console.log("not a valid file: " + image.type);
-        };
+        } else {
+            $("#btn_upload").attr("disabled", "disabled");
+
+            $("#error").show();
+            $("#error").html(msg);
+
+            $("#success").hide();
+        }
+    } else {
+        $("#btn_upload").attr("disabled", "disabled");
+        
+        $("#error").show();
+        $("#error").html("<p>Bild auswählen</p>");
+
+        $("#success").hide();
     }
 });

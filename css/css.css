@@ -20,6 +20,11 @@ body {
     background: #399aeb;
     cursor: pointer;
 }
+.btn:disabled {
+    background: #d0d0d0;
+    color: #bababa;
+    cursor: not-allowed;
+}
 
 /* Header */
 header {
@@ -188,11 +193,18 @@ form div {
     border-collapse: collapse;
     border-spacing: 0;
     display: inline-table;
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
 }
 .tb th {
     background: #f09800;
+}
+.tb_btn {
+    background: transparent;
+    cursor: pointer;
+    height: 100%;
+    text-decoration: underline;
+    width: 100%;
 }
 .tb tr {
     border-bottom: 1px solid #00000022;
@@ -253,6 +265,24 @@ footer {
     }
     .image_container {
         width: 100%;
+    }
+    .tb th, .tb td {
+        float: left;
+        height: 30px;
+        text-align: left;
+        width: 100%
+    }
+    .tb th {
+        display: none;
+    }
+    .tb td:before {
+        background: #f09800;
+        content: attr(data)" ";
+        display: inline-block;
+        height: 20px;
+        margin-right: 10px;
+        padding: 10px 0 0 10px;
+        width: 30%;
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 320px) {
