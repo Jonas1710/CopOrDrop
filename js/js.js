@@ -1,8 +1,10 @@
 if (sessionStorage.getItem("session")) {
     $("#logout").show();
+    $("#registration").hide();
     $("#login").hide();
 } else {
     $("#logout").hide();
+    $("#registration").show();
     $("#login").show();
 }
 

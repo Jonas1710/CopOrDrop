@@ -1,3 +1,8 @@
+if (sessionStorage.getItem("session")) {
+    window.location.href = "index.html";
+} else {
+}
+
 $("#btn_register").click(function () {
     var regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z.,:;\-+_!?@#*=\/\\()\[\]{}]{8,}$/,
         msg = "";

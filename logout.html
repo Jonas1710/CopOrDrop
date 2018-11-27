@@ -20,7 +20,7 @@
             <div id="menu" class="menu">
                 <a href="index.html" class="btn nav">Home</a>
                 <a href="statistik.html" class="btn nav">Statistik</a>
-                <a href="registration.html" class="btn nav">Registration</a>
+                <a id="registration" href="registration.html" class="btn nav">Registration</a>
                 <a id="login" href="login.html" class="btn nav">Login</a>
                 <a id="logout" href="#" class="btn nav">Logout</a>
             </div>
@@ -28,7 +28,8 @@
         <main>
             <div class="content">
                 <form action="javascript:void(0);" method="post">
-                    <input id="btn_logout" type="submit" class="btn form">
+                    <label>Wirklich ausloggen?</label>
+                    <input id="btn_logout" type="submit" class="btn form" value="Logout">
                 </form>
             </div>
         </main>

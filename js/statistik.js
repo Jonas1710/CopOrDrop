@@ -30,5 +30,5 @@ $("#sort_quote").click(function () {
 
 $("#btn_reset").click(function () {
     $.post("db_scripts/reset_stats.php");
-    location.reload();
+    setTimeout(function () { location.reload(); }, 500);
 });
