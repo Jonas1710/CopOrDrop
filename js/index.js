@@ -1,5 +1,10 @@
-/* show images */
+if (sessionStorage.getItem("session")) {
+    $("#btn_open_upload").show();
+} else {
+    $("#btn_open_upload").hide();
+}
 
+/* show images */
 function show_image(bild1, bild2) {
     $.post("db_scripts/show_image.php", { bild1: bild1, bild2: bild2 }, function (data) {
         var datas = data.split(";");
@@ -22,14 +27,14 @@ $(document).ready(show_image(undefined, undefined));
 $("#image1").click(function () {
     var bildID1 = $("#image1").attr("alt"),
         bildID2 = $("#image2").attr("alt");
-    //$.post("db_scripts/image1.php", { bildID1: bildID1, bildID2: bildID2 });
+    $.post("db_scripts/image1.php", { bildID1: bildID1, bildID2: bildID2 });
     
     show_image(bildID1, bildID2);
 });
 $("#image2").click(function () {
     var bildID1 = $("#image1").attr("alt"),
         bildID2 = $("#image2").attr("alt");
-    //$.post("db_scripts/image2.php", { bildID1: bildID1, bildID2: bildID2 });
+    $.post("db_scripts/image2.php", { bildID1: bildID1, bildID2: bildID2 });
     
     show_image(bildID1, bildID2);
 });

@@ -1,3 +1,8 @@
+if (sessionStorage.getItem("session")) {
+    window.location.href = "index.html";
+} else {
+}
+
 $("#btn_login").click(function () {
     var msg = "";
     if ($("#input_username").val() === "") {
@@ -18,10 +23,13 @@ $("#btn_login").click(function () {
         $.post("db_scripts/login.php", { username: username, password: password }, function (data) {
             var datas = data.split(";");
             if (datas[0] === "true") {
-                $("#error").hide();
+                sessionStorage.setItem("session", datas[1]);
+                window.location.href = "index.html";
+                
+                /*$("#error").hide();
                 
                 $("#success").show();
-                $("#success").html(datas[1]);
+                $("#success").html(datas[1]);*/
             } else {
                 $("#error").show();
                 $("#error").html(datas[1]);

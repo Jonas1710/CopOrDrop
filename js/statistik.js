@@ -1,3 +1,9 @@
+if (sessionStorage.getItem("session")) {
+    $("#btn_reset").show();
+} else {
+    $("#btn_reset").hide();
+}
+
 function show_stats(row) {
     $.post("db_scripts/show_stats.php", { row: row }, function (data) {
         $("#stat_elements").html(data);
@@ -20,4 +26,9 @@ $("#sort_likes").click(function () {
 
 $("#sort_quote").click(function () {
     show_stats("quote");
+});
+
+$("#btn_reset").click(function () {
+    $.post("db_scripts/reset_stats.php");
+    location.reload();
 });

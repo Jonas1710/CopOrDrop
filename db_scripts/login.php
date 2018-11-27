@@ -8,7 +8,7 @@ $sql = "SELECT name, password FROM benutzer WHERE name = '$username' AND passwor
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    echo "true;Erfolgreich eingeloggt";
+    echo "true;$username";
 } else {
     echo "false;Benutzername oder Passwort falsch";
 }

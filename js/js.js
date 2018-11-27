@@ -1,3 +1,11 @@
+if (sessionStorage.getItem("session")) {
+    $("#logout").show();
+    $("#login").hide();
+} else {
+    $("#logout").hide();
+    $("#login").show();
+}
+
 var win = window.matchMedia("(max-width: 480px)"),
     small = false;
 
