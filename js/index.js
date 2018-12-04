@@ -79,7 +79,12 @@ $("#input_file").change(function () {
             } else if (width < 300 || height < 300) {
                 msg += "<p>Bild zu klein</p>";
             }
+            var type = image.type;
+            if (type != "image/jpeg" && type != "image/png") {
+                msg += "<p>Bild entspricht nicht Typ</p>";
+            }
             if (msg === "") {
+                
                 $("#btn_upload").removeAttr("disabled");
                 
                 $("#success").show();
@@ -96,11 +101,12 @@ $("#input_file").change(function () {
                 
                 $("#success").hide();
             }
+                $("#error").html(image.type);
         };
     }
 });
 
-/* Überprüft das Uploadform nach dem Klick auf Upload */
+/* Überprüft das Uploadform nach dem Klick auf Upload, falls korrekt, wird Script ausgeführt */
 $("#btn_upload").click(function () {
     var image = $("#input_file")[0].files[0],
         img = new Image(),

@@ -3,7 +3,7 @@ if (sessionStorage.getItem("session")) {
 } else {
 }
 
-/* Klick auf Einloggen überprüft Eingabe und startet Session */
+/* Klick auf Einloggen überprüft Eingabe, falls korrekt, wird Session gestartet und Script ausgeführt */
 $("#btn_login").click(function () {
     var msg = "";
     if ($("#input_username").val() === "") {

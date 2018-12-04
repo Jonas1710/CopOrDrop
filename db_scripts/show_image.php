@@ -1,6 +1,7 @@
 <?php
 include("db_connect.php");
 
+/* Selektiert Bild nach Kriterien der vorherigen Bilder und zeigt diese an */
 $sql = "SELECT COUNT(*) FROM bilder";
 
 $result = mysqli_query($conn, $sql);

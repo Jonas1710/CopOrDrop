@@ -8,6 +8,7 @@ if (sessionStorage.getItem("session")) {
     $("#login").show();
 }
 
+/* win->Fenstergrösse, small-> */
 var win = window.matchMedia("(max-width: 480px)"),
     small = false;
 
@@ -27,6 +28,8 @@ if (win.matches) {
     $("#burger").removeClass("clicked");
     $("#menu").show();
 }
+
+/* Bei Anpassung der Fenstergrösse wird Webseite angepasst */
 $(window).on("resize", function () {
     if (win.matches) {
         if (small === false) {

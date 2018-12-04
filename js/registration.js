@@ -3,7 +3,7 @@ if (sessionStorage.getItem("session")) {
 } else {
 }
 
-/* Klick auf Registrieren überprüft Eingabe und erstellt neuen Benutzer */
+/* Klick auf Registrieren überprüft Eingabe, falls korrekt, wird Script ausgeführt */
 $("#btn_register").click(function () {
     var regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z.,:;\-+_!?@#*=\/\\()\[\]{}]{8,}$/,
         msg = "";

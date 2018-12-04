@@ -1,6 +1,7 @@
 <?php
 include("db_connect.php");
 
+/* Zeigt Statiskik mit duvor definierter Sortierung */
 $sql = "SELECT name, aufrufe, likes, ROUND(likes / aufrufe * 100, 2) AS quote FROM bilder";
 if (isset($_POST["row"])) {
     $sql .= " ORDER BY ".$_POST["row"].";";

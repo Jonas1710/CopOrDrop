@@ -1,6 +1,7 @@
 <?php
 include("db_connect.php");
 
+/* Überprüft ob Benutzername vergeben ist und macht einen neuen Eintrag in Benutzer */
 $username = $_POST["username"];
 $password = $_POST["password"];
 $sql = "SELECT name FROM benutzer WHERE name = '$username';";

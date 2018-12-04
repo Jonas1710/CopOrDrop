@@ -1,6 +1,7 @@
 <?php
 include("db_connect.php");
 
+/* Lädt Bild mit Name hoch */
 $name = $_POST["imagename"];
 $image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
 $typ = $_FILES["image"]["type"];
