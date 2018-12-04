@@ -3,6 +3,7 @@ if (sessionStorage.getItem("session")) {
 } else {
 }
 
+/* Klick auf Einloggen überprüft Eingabe und startet Session */
 $("#btn_login").click(function () {
     var msg = "";
     if ($("#input_username").val() === "") {

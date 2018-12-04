@@ -11,11 +11,13 @@ if (sessionStorage.getItem("session")) {
 var win = window.matchMedia("(max-width: 480px)"),
     small = false;
 
-/* burger menu */
+/* Burger Klick zeigt Navigation an */
 $("#burger").click(function () {
     $("#burger").toggleClass("clicked");
     $("#menu").slideToggle(300);
 });
+
+/* Zeigt Burger an wenn Grösse stimmt */
 if (win.matches) {
     small = true;
     $("#burger").removeClass("clicked");

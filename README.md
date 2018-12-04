@@ -10,10 +10,8 @@
   - Sortieren nur ASC
 - Registration
 - Login
-  - Input Check
+  - Privat und Public View
+  - Logout
 ## ToDo
 - Statistik
   - Sortieren beides
-- Login
-  - Privat und Public View
-  - Logout

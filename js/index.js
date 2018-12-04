@@ -4,7 +4,7 @@ if (sessionStorage.getItem("session")) {
     $("#btn_open_upload").hide();
 }
 
-/* show images */
+/* Zeigt die Bilder auf der Startseite an */
 function show_image(bild1, bild2) {
     $.post("db_scripts/show_image.php", { bild1: bild1, bild2: bild2 }, function (data) {
         var datas = data.split(";");
@@ -23,7 +23,7 @@ function show_image(bild1, bild2) {
 
 $(document).ready(show_image(undefined, undefined));
 
-/* image click functions */
+/* Klick Funktion des 1. Bildes */
 $("#image1").click(function () {
     var bildID1 = $("#image1").attr("alt"),
         bildID2 = $("#image2").attr("alt");
@@ -31,6 +31,8 @@ $("#image1").click(function () {
     
     show_image(bildID1, bildID2);
 });
+
+/* Klick Funktion des 2. Bildes */
 $("#image2").click(function () {
     var bildID1 = $("#image1").attr("alt"),
         bildID2 = $("#image2").attr("alt");
@@ -39,11 +41,13 @@ $("#image2").click(function () {
     show_image(bildID1, bildID2);
 });
 
-/* image upload form */
+/* Zeigt das Uploadform an */
 $("#btn_open_upload").click(function () {
     $("#background").fadeIn(300);
     $("#upload_dialog").fadeIn(300);
 });
+
+/* Schliesst das Uploadform */
 $("#btn_close").click(function () {
     $("#background").fadeOut(300);
     $("#upload_dialog").fadeOut(300);
@@ -52,11 +56,13 @@ $("#background").click(function () {
     $("#background").fadeOut(300);
     $("#upload_dialog").fadeOut(300);
 });
+
+/* Öffnet den Windows Exlorer */
 $("#btn_select").click(function () {
     $("#input_file").click();
 });
 
-/* image upload -> check file */
+/* Überprüft die Datei nach dem auswählen */
 var _URL = window.URL || window.webkitURL;
 $("#input_file").change(function () {
     $("#selected_file").text($("#input_file")[0].files.item(0).name);
@@ -94,7 +100,7 @@ $("#input_file").change(function () {
     }
 });
 
-/* image upload -> check form */
+/* Überprüft das Uploadform nach dem Klick auf Upload */
 $("#btn_upload").click(function () {
     var image = $("#input_file")[0].files[0],
         img = new Image(),
