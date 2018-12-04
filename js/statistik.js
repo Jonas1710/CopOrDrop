@@ -12,24 +12,46 @@ function show_stats(row) {
 }
 $(document).ready(show_stats(undefined));
 
+var sort = "";
+
 /* Sortiert nach Name */
 $("#sort_name").click(function () {
-    show_stats("name");
+    if (sort == "" || sort != "name") {
+        sort = "name";
+    } else {
+        sort = "name DESC"
+    }
+    show_stats(sort);
 });
 
 /* Sortiert nach Aufrufe */
 $("#sort_aufrufe").click(function () {
-    show_stats("aufrufe");
+    if (sort == "" || sort != "aufrufe") {
+        sort = "aufrufe";
+    } else {
+        sort = "aufrufe DESC"
+    }
+    show_stats(sort);
 });
 
 /* Sortiert nach Likes */
 $("#sort_likes").click(function () {
-    show_stats("likes");
+    if (sort == "" || sort != "likes") {
+        sort = "likes";
+    } else {
+        sort = "likes DESC"
+    }
+    show_stats(sort);
 });
 
 /* Sortiert nach Quote */
 $("#sort_quote").click(function () {
-    show_stats("quote");
+    if (sort == "" || sort != "quote") {
+        sort = "quote";
+    } else {
+        sort = "quote DESC"
+    }
+    show_stats(sort);
 });
 
 /* Setzt Statistik zurück */
