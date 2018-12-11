@@ -7,11 +7,8 @@
 - Statistik
   - Anzeigen
   - Dynamisch anpassen
-  - Sortieren nur ASC
+  - Sortieren
 - Registration
 - Login
   - Privat und Public View
   - Logout
-## ToDo
-- Statistik
-  - Sortieren beides
