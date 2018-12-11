@@ -3,7 +3,7 @@ include("db_connect.php");
 
 /* Überprüft Logindaten */
 $username = $_POST["username"];
-$password = $_POST["password"];
+$password = md5($_POST["password"]);
 $sql = "SELECT name, password FROM benutzer WHERE name = '$username' AND password = '$password';";
 
 $result = mysqli_query($conn, $sql);
