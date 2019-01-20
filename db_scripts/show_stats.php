@@ -1,4 +1,10 @@
 <?php
+/*
+Autor/en: Nick Weyermann
+Version:  1.02
+Datum:    26.11.18
+*/
+
 include("db_connect.php");
 
 /* Zeigt Statiskik mit duvor definierter Sortierung */

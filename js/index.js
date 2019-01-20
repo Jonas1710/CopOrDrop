@@ -1,3 +1,9 @@
+/*
+Autor/en: Nick Weyermann, Nikola Milicic, Micha Dubach, Jonas Mollet
+Version:  1.05
+Datum:    4.12.18
+*/
+
 if (sessionStorage.getItem("session")) {
     $("#btn_open_upload").show();
 } else {
@@ -79,29 +85,29 @@ $("#input_file").change(function () {
             } else if (width < 300 || height < 300) {
                 msg += "<p>Bild zu klein</p>";
             }
-            var type = image.type;
-            if (type != "image/jpeg" && type != "image/png") {
+            /*var type = image.type;
+            if (type == "" || type == undefined || type == null) {
                 msg += "<p>Bild entspricht nicht Typ</p>";
-            }
+            } else if (type != "image/jpeg" && type != "image/png") {
+                msg += "<p>Bild entspricht nicht Typ</p>";
+            }*/
             if (msg === "") {
-                
                 $("#btn_upload").removeAttr("disabled");
+                
+                $("#error").hide();
                 
                 $("#success").show();
                 $("#success").html("<p>Bild entspricht Anforderungen</p>");
-                
-                $("#error").hide();
                 
                 img.src = _URL.revokeObjectURL(img.src);
             } else {
                 $("#btn_upload").attr("disabled", "disabled");
                 
+                $("#success").hide();
+                
                 $("#error").show();
                 $("#error").html(msg);
-                
-                $("#success").hide();
             }
-                $("#error").html(image.type);
         };
     }
 });
@@ -119,7 +125,7 @@ $("#btn_upload").click(function () {
             $.ajax({
                 url: "db_scripts/upload_image.php",
                 type: "POST",
-                data: new FormData($("#image_upload")[0]),
+                data: {form: new FormData($("#image_upload")[0]), user: sessionStorage.getItem("session")},
                 cache: false,
                 contentType: false,
                 processData: false
@@ -132,26 +138,34 @@ $("#btn_upload").click(function () {
                         $("#success").show();
                         $("#success").html(datas[1]);
                     } else {
+                        $("#success").hide();
+                        
                         $("#error").show();
                         $("#error").html(datas[1]);
-
-                        $("#success").hide();
                     }
                 });
         } else {
             $("#btn_upload").attr("disabled", "disabled");
 
+            $("#success").hide();
+
             $("#error").show();
             $("#error").html(msg);
-
-            $("#success").hide();
         }
     } else {
         $("#btn_upload").attr("disabled", "disabled");
+
+        $("#success").hide();
         
         $("#error").show();
         $("#error").html("<p>Bild auswählen</p>");
+    }
+});
 
-        $("#success").hide();
+$("#input_imagename").keyup(function () {
+    if ($("#input_imagename").val() === "") {
+        $("#btn_upload").attr("disabled", "disabled");
+    } else {
+        $("#btn_upload").removeAttr("disabled");
     }
 });

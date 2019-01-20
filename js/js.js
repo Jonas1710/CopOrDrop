@@ -1,3 +1,9 @@
+/*
+Autor/en: Nick Weyermann
+Version:  1.06
+Datum:    27.11.18
+*/
+
 if (sessionStorage.getItem("session")) {
     $("#logout").show();
     $("#registration").hide();

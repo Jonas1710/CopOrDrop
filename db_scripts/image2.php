@@ -1,4 +1,10 @@
 <?php
+/*
+Autor/en: Jonas Mollet
+Version:  1.01
+Datum:    19.11.18
+*/
+
 include("db_connect.php");
 
 /* Passt Bilder Werte an nach Bild2 */

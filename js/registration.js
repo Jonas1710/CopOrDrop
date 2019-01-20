@@ -1,3 +1,9 @@
+/*
+Autor/en: Nick Weyermann
+Version:  1.04
+Datum:    27.11.18
+*/
+
 if (sessionStorage.getItem("session")) {
     window.location.href = "index.html";
 } else {

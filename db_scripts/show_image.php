@@ -1,4 +1,10 @@
 <?php
+/*
+Autor/en: Nick Weyermann
+Version:  1.01
+Datum:    26.11.18
+*/
+
 include("db_connect.php");
 
 /* Selektiert Bild nach Kriterien der vorherigen Bilder und zeigt diese an */

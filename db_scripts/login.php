@@ -1,4 +1,10 @@
 <?php
+/*
+Autor/en: Micha Dubach
+Version:  1.02
+Datum:    4.12.18
+*/
+
 include("db_connect.php");
 
 /* Überprüft Logindaten */

@@ -1,4 +1,10 @@
 <?php
+/*
+Autor/en: Nick Weyermann
+Version:  1.01
+Datum:    4.12.18
+*/
+
 include("db_connect.php");
 
 /* Überprüft ob Benutzername vergeben ist und macht einen neuen Eintrag in Benutzer */

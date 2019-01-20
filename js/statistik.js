@@ -3,6 +3,11 @@ if (sessionStorage.getItem("session")) {
 } else {
     $("#btn_reset").hide();
 }
+/*
+Autor/en: Nick Weyermann
+Version:  1.04
+Datum:    27.11.18
+*/
 
 /* Zeigt die Statistik an */
 function show_stats(row) {
